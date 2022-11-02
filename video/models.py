@@ -2,16 +2,11 @@ import datetime
 from typing import Optional
 
 import ormar
-from db import metadata, database
-
-
-class MainMata(ormar.ModelMeta):
-    metadata = metadata
-    database = database
+from db import metadata, database, MainMeta
 
 
 class User(ormar.Model):
-    class Meta(MainMata):
+    class Meta(MainMeta):
         pass
 
     id: int = ormar.Integer(primary_key=True)
@@ -19,7 +14,7 @@ class User(ormar.Model):
 
 
 class Video(ormar.Model):
-    class Meta(MainMata):
+    class Meta(MainMeta):
         pass
 
     id: int = ormar.Integer(primary_key=True)
